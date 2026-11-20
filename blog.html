@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Wawasan Digital - Kreatika Studio | Tips UI/UX & Web Dev</title>
+  <meta name="description" content="Kumpulan artikel mendalam seputar psikologi UI/UX, arsitektur web modern Next.js, optimasi konversi e-commerce, dan tren industri digital Indonesia.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#EEF2FF', 500: '#6366F1', 600: '#4F46E5', dark: '#07090E', card: '#0D111C' }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Space Grotesk"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#07090E] text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-indigo-900 via-indigo-700 to-purple-800 text-xs py-2 px-4 text-center font-medium text-white flex items-center justify-center gap-2">
+    <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+    <span>Dapatkan Insight Mingguan Langsung dari Para Principal Designer & Architect Kami</span>
+    <a href="#newsletter" class="underline hover:text-indigo-200 ml-2 font-bold inline-flex items-center gap-1">Langganan <i class="fas fa-arrow-down text-[10px]"></i></a>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform duration-300">
+            <i class="fas fa-cubes text-white text-xl"></i>
+          </div>
+          <div>
+            <div class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1">KREATIKA<span class="text-indigo-400">.</span></div>
+            <div class="text-[10px] tracking-wider text-slate-400 uppercase font-semibold">UI/UX & Web Engineering</div>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Beranda</a>
+          <a href="about.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Tentang Kami</a>
+          <a href="services.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Layanan</a>
+          <a href="portfolio.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Portofolio</a>
+          <a href="pricing.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Paket & Kalkulator</a>
+          <a href="process.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Metodologi</a>
+          <a href="blog.html" class="nav-link text-sm font-medium hover:text-indigo-400 transition-colors py-1 border-b-2 border-indigo-500">Blog</a>
+          <a href="contact.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Kontak</a>
+        </nav>
+
+        <div class="hidden md:flex items-center gap-4">
+          <button class="theme-toggle-btn w-10 h-10 rounded-xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center hover:bg-slate-700 transition-colors" title="Ganti Tema">
+            <i class="fas fa-sun text-amber-400 theme-toggle-icon"></i>
+          </button>
+          <a href="contact.html" class="btn-glow inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold text-sm shadow-lg shadow-indigo-600/30 hover:opacity-95 transition-all">
+            <span>Mulai Proyek</span>
+            <i class="fas fa-paper-plane text-xs"></i>
+          </a>
+        </div>
+
+        <div class="flex md:hidden items-center gap-3">
+          <button class="theme-toggle-btn w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300">
+            <i class="fas fa-sun text-amber-400 theme-toggle-icon"></i>
+          </button>
+          <button id="mobile-menu-btn" class="w-10 h-10 rounded-lg bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-white">
+            <i class="fas fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu-drawer" class="hidden md:hidden glass-panel border-b border-slate-800 px-6 py-6 transition-all duration-300">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+        <span class="text-sm font-bold uppercase tracking-wider text-indigo-400">Navigasi Utama</span>
+        <button id="close-mobile-menu-btn" class="text-slate-400 hover:text-white text-lg"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="flex flex-col gap-4 mt-4">
+        <a href="index.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Beranda</a>
+        <a href="about.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Tentang Kami</a>
+        <a href="services.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Layanan Desain & Web</a>
+        <a href="portfolio.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Portofolio & Studi Kasus</a>
+        <a href="pricing.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Paket Harga & Kalkulator</a>
+        <a href="process.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Alur Kerja & Metodologi</a>
+        <a href="blog.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Blog & Wawasan</a>
+        <a href="contact.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Kontak & Konsultasi</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-20 md:py-28 relative bg-radial-glow border-b border-slate-800/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 text-xs font-semibold mb-6">
+        <i class="fas fa-book-open text-indigo-400"></i>
+        <span>Wawasan & Berita Industri</span>
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-6 tracking-tight">
+        Blog & Wawasan <span class="text-gradient">Desain & Rekayasa Web</span>
+      </h1>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Eksplorasi wawasan praktis, studi kasus psikologi kognitif UX, benchmark arsitektur web modern, dan tips meningkatkan conversion rate bisnis Anda.
+      </p>
+    </div>
+  </section>
+
+  <!-- Featured Hero Article -->
+  <section class="py-16 bg-[#07090E] border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="rounded-3xl p-6 sm:p-10 glass-panel border border-indigo-500/30 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center cursor-pointer group" data-article-id="rahasia-konversi-ux-2025">
+        <div class="lg:col-span-7 rounded-2xl overflow-hidden h-72 sm:h-96 bg-slate-900">
+          <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80" alt="Featured Article" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="lg:col-span-5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-600 text-white">Artikel Utama</span>
+              <span class="text-xs text-slate-400">14 November 2024 • 6 Menit Baca</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4 group-hover:text-indigo-400 transition-colors">
+              7 Prinsip Psikologi UX yang Mampu Meningkatkan Konversi Web Hingga 150%
+            </h2>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+              Bagaimana hukum Hick, efek Von Restorff, dan cognitive load menentukan apakah pengunjung akan menekan tombol beli atau langsung menutup tab browser Anda.
+            </p>
+          </div>
+          <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" alt="Clara Salsabila" class="w-10 h-10 rounded-full object-cover border border-indigo-400">
+              <div>
+                <div class="text-xs font-bold text-white">Clara Salsabila</div>
+                <div class="text-[11px] text-slate-400">Lead UX Researcher</div>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-indigo-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+              Baca Lengkap <i class="fas fa-arrow-right text-[10px]"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Articles Grid (5 more articles) -->
+  <section class="py-20 bg-[#07090E]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Article 2: Next.js vs WordPress -->
+        <div class="card-hover-effect rounded-2xl overflow-hidden flex flex-col justify-between cursor-pointer group" data-article-id="nextjs-vs-wordpress-2025">
+          <div>
+            <div class="h-48 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Next.js vs WordPress" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                <span class="text-violet-400 font-semibold">Web Development</span>
+                <span>8 Menit Baca</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2 group-hover:text-violet-400 transition-colors">
+                Next.js vs WordPress: Mana yang Lebih Tepat untuk Website Bisnis Skala Serius?
+              </h3>
+              <p class="text-slate-400 text-xs leading-relaxed line-clamp-3">
+                Perbandingan objektif performa kecepatan, keamanan dari celah peretasan, fleksibilitas API, dan total biaya kepemilikan.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 flex items-center justify-between text-xs text-slate-400 border-t border-slate-800/80 mt-4">
+            <span class="font-medium text-white">Kevin Jonathan</span>
+            <span class="text-indigo-400 font-bold">Baca Artikel <i class="fas fa-arrow-right text-[10px]"></i></span>
+          </div>
+        </div>
+
+        <!-- Article 3: Design System Figma -->
+        <div class="card-hover-effect rounded-2xl overflow-hidden flex flex-col justify-between cursor-pointer group" data-article-id="membangun-design-system-figma">
+          <div>
+            <div class="h-48 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&q=80" alt="Design System Figma" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                <span class="text-pink-400 font-semibold">Design System</span>
+                <span>10 Menit Baca</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">
+                Panduan Praktis Membangun Design System di Figma yang Disukai Developer
+              </h3>
+              <p class="text-slate-400 text-xs leading-relaxed line-clamp-3">
+                Hindari drama handoff antara tim UI/UX dan engineer dengan memanfaatkan Design Tokens, auto-layout flexbox, dan penamaan modular.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 flex items-center justify-between text-xs text-slate-400 border-t border-slate-800/80 mt-4">
+            <span class="font-medium text-white">Rizky Ramadhan</span>
+            <span class="text-indigo-400 font-bold">Baca Artikel <i class="fas fa-arrow-right text-[10px]"></i></span>
+          </div>
+        </div>
+
+        <!-- Article 4: Tren Desain 2025 -->
+        <div class="card-hover-effect rounded-2xl overflow-hidden flex flex-col justify-between cursor-pointer group" data-article-id="tren-web-ui-2025">
+          <div>
+            <div class="h-48 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Tren Web UI 2025" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                <span class="text-amber-400 font-semibold">Tren Digital</span>
+                <span>5 Menit Baca</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
+                Tren Desain Web & UI 2025: Dari Glassmorphism Elegan Hingga AI Personalization
+              </h3>
+              <p class="text-slate-400 text-xs leading-relaxed line-clamp-3">
+                Eksplorasi tren visual masa kini: micro-animations berbasis GSAP, tipografi berkarakter kuat, dan antarmuka gelap beraura futuristik.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 flex items-center justify-between text-xs text-slate-400 border-t border-slate-800/80 mt-4">
+            <span class="font-medium text-white">Clara Salsabila</span>
+            <span class="text-indigo-400 font-bold">Baca Artikel <i class="fas fa-arrow-right text-[10px]"></i></span>
+          </div>
+        </div>
+
+        <!-- Article 5: Keamanan Web Perusahaan -->
+        <div class="card-hover-effect rounded-2xl overflow-hidden flex flex-col justify-between cursor-pointer group" data-article-id="keamanan-web-perusahaan">
+          <div>
+            <div class="h-48 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Keamanan Web Perusahaan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                <span class="text-cyan-400 font-semibold">Web Development</span>
+                <span>7 Menit Baca</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                Checklist Keamanan Web Perusahaan: Lindungi Data Klien dari Ancaman Siber
+              </h3>
+              <p class="text-slate-400 text-xs leading-relaxed line-clamp-3">
+                Penerapan HTTPS HSTS, Content Security Policy (CSP), sanitasi formulir kontak, dan mitigasi DDoS untuk menjaga integritas brand.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 flex items-center justify-between text-xs text-slate-400 border-t border-slate-800/80 mt-4">
+            <span class="font-medium text-white">Kevin Jonathan</span>
+            <span class="text-indigo-400 font-bold">Baca Artikel <i class="fas fa-arrow-right text-[10px]"></i></span>
+          </div>
+        </div>
+
+        <!-- Article 6: Audit Kecepatan Web ROI -->
+        <div class="card-hover-effect rounded-2xl overflow-hidden flex flex-col justify-between cursor-pointer group" data-article-id="audit-kecepatan-web-roi">
+          <div>
+            <div class="h-48 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Kecepatan Web & ROI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                <span class="text-emerald-400 font-semibold">E-Commerce</span>
+                <span>6 Menit Baca</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                Setiap 1 Detik Keterlambatan Web Membakar 7% Penjualan: Studi Kasus Realita
+              </h3>
+              <p class="text-slate-400 text-xs leading-relaxed line-clamp-3">
+                Data riset Google & Walmart membuktikan korelasi langsung antara page loading speed dengan bounce rate pengunjung serta pendapatan bisnis.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 flex items-center justify-between text-xs text-slate-400 border-t border-slate-800/80 mt-4">
+            <span class="font-medium text-white">Rizky Ramadhan</span>
+            <span class="text-indigo-400 font-bold">Baca Artikel <i class="fas fa-arrow-right text-[10px]"></i></span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section id="newsletter" class="py-20 bg-slate-950/70 border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 text-xl mx-auto mb-4">
+        <i class="fas fa-envelope-open-text"></i>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">Berlangganan Newsletter Mingguan Kami</h2>
+      <p class="text-slate-400 text-xs sm:text-sm max-w-lg mx-auto mb-6">
+        Dapatkan ringkasan artikel pilihan, tren desain antarmuka, dan tips teknis web tanpa spam. Berhenti berlangganan kapan saja.
+      </p>
+
+      <form id="newsletter-form" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+        <input type="email" placeholder="Alamat email aktif Anda" class="flex-1 px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs focus:outline-none focus:border-indigo-500" required>
+        <button type="submit" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition-colors shadow-lg shadow-indigo-600/30">
+          Langganan
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Dynamic Article Reader Modal -->
+  <div id="article-reader-modal" class="modal-backdrop fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4 overflow-y-auto">
+    <div class="modal-content-wrapper relative w-full max-w-3xl my-8 bg-slate-900 border border-slate-700 rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+      <div class="p-4 px-6 bg-slate-950 border-b border-slate-800 flex items-center justify-between sticky top-0 z-20">
+        <span id="modal-article-category" class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-600 text-white">Kategori</span>
+        <button id="close-article-modal-btn" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+          <i class="fas fa-times text-sm"></i>
+        </button>
+      </div>
+
+      <div class="p-6 sm:p-10 overflow-y-auto space-y-6">
+        <div id="modal-article-meta" class="text-xs text-slate-400">Tanggal • Waktu</div>
+        <h2 id="modal-article-title" class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">Judul Artikel</h2>
+        
+        <div class="flex items-center gap-3 py-2 border-y border-slate-800">
+          <img id="modal-article-author-img" src="" alt="Author" class="w-10 h-10 rounded-full object-cover border border-indigo-400">
+          <div>
+            <div id="modal-article-author-name" class="text-xs font-bold text-white">Nama Penulis</div>
+            <div id="modal-article-author-role" class="text-[11px] text-slate-400">Posisi</div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden h-64 sm:h-80 bg-slate-950">
+          <img id="modal-article-cover" src="" alt="Article Banner" class="w-full h-full object-cover">
+        </div>
+
+        <div id="modal-article-content" class="text-slate-300 text-sm leading-relaxed space-y-4 pt-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#040609] border-t border-slate-900 py-12 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:flex sm:justify-between sm:items-center">
+      <div>&copy; 2024-2026 PT Kreatika Media Digital Indonesia. Seluruh hak cipta dilindungi.</div>
+      <div class="flex justify-center gap-6 mt-4 sm:mt-0">
+        <a href="index.html" class="hover:text-slate-400">Beranda</a>
+        <a href="services.html" class="hover:text-slate-400">Layanan</a>
+        <a href="portfolio.html" class="hover:text-slate-400">Portofolio</a>
+        <a href="contact.html" class="hover:text-slate-400">Kontak</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

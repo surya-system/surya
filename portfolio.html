@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio & Studi Kasus - Kreatika Studio | Karya UI/UX & Web</title>
+  <meta name="description" content="Eksplorasi portofolio proyek desain UI/UX, SaaS web app, dan platform e-commerce yang berhasil meningkatkan metrik bisnis klien Kreatika Studio.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#EEF2FF', 500: '#6366F1', 600: '#4F46E5', dark: '#07090E', card: '#0D111C' }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Space Grotesk"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#07090E] text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-indigo-900 via-indigo-700 to-purple-800 text-xs py-2 px-4 text-center font-medium text-white flex items-center justify-center gap-2">
+    <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+    <span>Terbuka untuk Reservasi Proyek Kuartal Ini • Dapatkan <strong>Free UX & Website Audit 30 Menit</strong></span>
+    <a href="contact.html" class="underline hover:text-indigo-200 ml-2 font-bold inline-flex items-center gap-1">Klaim Sekarang <i class="fas fa-arrow-right text-[10px]"></i></a>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform duration-300">
+            <i class="fas fa-cubes text-white text-xl"></i>
+          </div>
+          <div>
+            <div class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1">KREATIKA<span class="text-indigo-400">.</span></div>
+            <div class="text-[10px] tracking-wider text-slate-400 uppercase font-semibold">UI/UX & Web Engineering</div>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Beranda</a>
+          <a href="about.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Tentang Kami</a>
+          <a href="services.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Layanan</a>
+          <a href="portfolio.html" class="nav-link text-sm font-medium hover:text-indigo-400 transition-colors py-1 border-b-2 border-indigo-500">Portofolio</a>
+          <a href="pricing.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Paket & Kalkulator</a>
+          <a href="process.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Metodologi</a>
+          <a href="blog.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Blog</a>
+          <a href="contact.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Kontak</a>
+        </nav>
+
+        <div class="hidden md:flex items-center gap-4">
+          <button class="theme-toggle-btn w-10 h-10 rounded-xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center hover:bg-slate-700 transition-colors" title="Ganti Tema">
+            <i class="fas fa-sun text-amber-400 theme-toggle-icon"></i>
+          </button>
+          <a href="contact.html" class="btn-glow inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold text-sm shadow-lg shadow-indigo-600/30 hover:opacity-95 transition-all">
+            <span>Mulai Proyek</span>
+            <i class="fas fa-paper-plane text-xs"></i>
+          </a>
+        </div>
+
+        <div class="flex md:hidden items-center gap-3">
+          <button class="theme-toggle-btn w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300">
+            <i class="fas fa-sun text-amber-400 theme-toggle-icon"></i>
+          </button>
+          <button id="mobile-menu-btn" class="w-10 h-10 rounded-lg bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-white">
+            <i class="fas fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu-drawer" class="hidden md:hidden glass-panel border-b border-slate-800 px-6 py-6 transition-all duration-300">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+        <span class="text-sm font-bold uppercase tracking-wider text-indigo-400">Navigasi Utama</span>
+        <button id="close-mobile-menu-btn" class="text-slate-400 hover:text-white text-lg"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="flex flex-col gap-4 mt-4">
+        <a href="index.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Beranda</a>
+        <a href="about.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Tentang Kami</a>
+        <a href="services.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Layanan Desain & Web</a>
+        <a href="portfolio.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Portofolio & Studi Kasus</a>
+        <a href="pricing.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Paket Harga & Kalkulator</a>
+        <a href="process.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Alur Kerja & Metodologi</a>
+        <a href="blog.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Blog & Wawasan</a>
+        <a href="contact.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Kontak & Konsultasi</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-20 md:py-28 relative bg-radial-glow border-b border-slate-800/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 text-xs font-semibold mb-6">
+        <i class="fas fa-layer-group text-indigo-400"></i>
+        <span>Showcase Portofolio & Hasil Terukur</span>
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-6 tracking-tight">
+        Karya Pilihan & <span class="text-gradient">Studi Kasus Nyata</span>
+      </h1>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Setiap proyek adalah bukti komitmen kami dalam menggabungkan estetika desain humanis dan performa rekayasa web skala enterprise.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mt-10">
+        <button class="portfolio-filter-btn px-5 py-2.5 rounded-xl text-xs font-bold transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25" data-filter="all">
+          Semua Proyek (8)
+        </button>
+        <button class="portfolio-filter-btn px-5 py-2.5 rounded-xl text-xs font-bold transition-all bg-slate-800/60 text-slate-400 border border-slate-700 hover:text-white" data-filter="webapp">
+          Web App & SaaS (4)
+        </button>
+        <button class="portfolio-filter-btn px-5 py-2.5 rounded-xl text-xs font-bold transition-all bg-slate-800/60 text-slate-400 border border-slate-700 hover:text-white" data-filter="ecommerce">
+          E-Commerce (1)
+        </button>
+        <button class="portfolio-filter-btn px-5 py-2.5 rounded-xl text-xs font-bold transition-all bg-slate-800/60 text-slate-400 border border-slate-700 hover:text-white" data-filter="company">
+          Company Profile (1)
+        </button>
+        <button class="portfolio-filter-btn px-5 py-2.5 rounded-xl text-xs font-bold transition-all bg-slate-800/60 text-slate-400 border border-slate-700 hover:text-white" data-filter="fintech">
+          Fintech & Smart UI (2)
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Portfolio Grid Section -->
+  <section class="py-24 bg-[#07090E]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div id="portfolio-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- 1. PayNexa -->
+        <div class="portfolio-card card-hover-effect rounded-2xl overflow-hidden flex flex-col group" data-category="webapp">
+          <div class="relative overflow-hidden h-60 bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="PayNexa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-600/90 text-white backdrop-blur-md">Web App & SaaS</span>
+            </div>
+            <div class="absolute bottom-4 right-4">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-900/90 text-slate-300 border border-slate-700 backdrop-blur-md">2024</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-xs text-indigo-400 font-semibold mb-1">PT Nusa Finansial Solusindo</div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">
+                PayNexa - Modern Enterprise Payment Gateway
+              </h3>
+              <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-2">
+                Redesain UI/UX dashboard payment gateway multi-miliar rupiah dengan navigasi intuitif dan visualisasi analitik real-time.
+              </p>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 mb-6">
+                <div class="text-base font-extrabold text-emerald-400">+165% DAU • Onboarding 15 Menit</div>
+                <div class="text-[11px] text-slate-400">Merchant drop-off menurun tajam hingga 4.2%</div>
+              </div>
+            </div>
+            <button data-case-study-id="paynexa-fintech" class="w-full py-2.5 rounded-xl bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white font-semibold text-xs border border-indigo-500/30 transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-eye text-xs"></i>
+              <span>Buka Rincian Studi Kasus</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. MedikaCare -->
+        <div class="portfolio-card card-hover-effect rounded-2xl overflow-hidden flex flex-col group" data-category="webapp">
+          <div class="relative overflow-hidden h-60 bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="MedikaCare" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-violet-600/90 text-white backdrop-blur-md">Web App & SaaS</span>
+            </div>
+            <div class="absolute bottom-4 right-4">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-900/90 text-slate-300 border border-slate-700 backdrop-blur-md">2024</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-xs text-violet-400 font-semibold mb-1">MedikaCare Healthcare Group</div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-violet-400 transition-colors">
+                MedikaCare - Telemedicine & Clinical Portal
+              </h3>
+              <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-2">
+                Portal pasien dan dokter dengan video room WebRTC ringan, EMR terintegrasi, dan kepatuhan WCAG 2.1 AA.
+              </p>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 mb-6">
+                <div class="text-base font-extrabold text-violet-400">+142% Booking • 4.9/5.0 Rating</div>
+                <div class="text-[11px] text-slate-400">Waktu temu dokter turun dari 8 menit ke 45 detik</div>
+              </div>
+            </div>
+            <button data-case-study-id="medikacare-telehealth" class="w-full py-2.5 rounded-xl bg-violet-600/20 hover:bg-violet-600 text-violet-300 hover:text-white font-semibold text-xs border border-violet-500/30 transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-eye text-xs"></i>
+              <span>Buka Rincian Studi Kasus</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. KopiKultur -->
+        <div class="portfolio-card card-hover-effect rounded-2xl overflow-hidden flex flex-col group" data-category="ecommerce">
+          <div class="relative overflow-hidden h-60 bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" alt="KopiKultur" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-600/90 text-white backdrop-blur-md">E-Commerce</span>
+            </div>
+            <div class="absolute bottom-4 right-4">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-900/90 text-slate-300 border border-slate-700 backdrop-blur-md">2023</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-xs text-amber-400 font-semibold mb-1">KopiKultur Nusantara</div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
+                KopiKultur - Artisanal D2C Experience
+              </h3>
+              <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-2">
+                Toko online headless dengan kuis personal 'Flavor Finder Quiz', langganan roasting mingguan, dan integrasi Midtrans.
+              </p>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 mb-6">
+                <div class="text-base font-extrabold text-amber-400">4.6% Conversion • 0.8s Load Speed</div>
+                <div class="text-[11px] text-slate-400">5.000+ pelanggan langganan aktif bulanan</div>
+              </div>
+            </div>
+            <button data-case-study-id="kopikultur-ecommerce" class="w-full py-2.5 rounded-xl bg-amber-600/20 hover:bg-amber-600 text-amber-300 hover:text-white font-semibold text-xs border border-amber-500/30 transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-eye text-xs"></i>
+              <span>Buka Rincian Studi Kasus</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. AgriChain -->
+        <div class="portfolio-card card-hover-effect rounded-2xl overflow-hidden flex flex-col group" data-category="webapp">
+          <div class="relative overflow-hidden h-60 bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="AgriChain" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-600/90 text-white backdrop-blur-md">Web App & SaaS</span>
+            </div>
+            <div class="absolute bottom-4 right-4">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-900/90 text-slate-300 border border-slate-700 backdrop-blur-md">2024</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-xs text-emerald-400 font-semibold mb-1">PT Tani Distribusi Nusantara</div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                AgriChain - B2B Produce Supply Chain
+              </h3>
+              <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-2">
+                Dashboard kontrol logistik rantai pasok cerdas yang menghubungkan 800+ kelompok tani dengan 300+ hotel dan katering.
+              </p>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 mb-6">
+                <div class="text-base font-extrabold text-emerald-400">Waste Turun ke 6.8% • Dispatch 4x Lebih Cepat</div>
+                <div class="text-[11px] text-slate-400">Rekonsiliasi invoice otomatis zero-error</div>
+              </div>
+            </div>
+            <button data-case-study-id="agrichain-b2b" class="w-full py-2.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white font-semibold text-xs border border-emerald-500/30 transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-eye text-xs"></i>
+              <span>Buka Rincian Studi Kasus</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. LuxeStay Bali -->
+        <div class="portfolio-card card-hover-effect rounded-2xl overflow-hidden flex flex-col group" data-category="company">
+          <div class="relative overflow-hidden h-60 bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="LuxeStay Bali" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-600/90 text-white backdrop-blur-md">Company Profile</span>
+            </div>
+            <div class="absolute bottom-4 right-4">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-900/90 text-slate-300 border border-slate-700 backdrop-blur-md">2023</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-xs text-cyan-400 font-semibold mb-1">LuxeStay Hospitality Group</div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                LuxeStay Bali - Immersive Booking Engine
+              </h3>
+              <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-2">
+                Website luxury hospitality dengan tur villa 360°, custom booking engine tanpa komisi OTA, dan video background berkecepatan tinggi.
+              </p>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 mb-6">
+                <div class="text-base font-extrabold text-cyan-400">Direct Booking 52% • Hemat Komisi 1.4M</div>
+                <div class="text-[11px] text-slate-400">Memenangkan CSS Design Awards Site of the Day</div>
+              </div>
+            </div>
+            <button data-case-study-id="luxestay-resort" class="w-full py-2.5 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 text-cyan-300 hover:text-white font-semibold text-xs border border-cyan-500/30 transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-eye text-xs"></i>
+              <span>Buka Rincian Studi Kasus</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 6. EduTalent -->
+        <div class="portfolio-card card-hover-effect rounded-2xl overflow-hidden flex flex-col group" data-category="webapp">
+          <div class="relative overflow-hidden h-60 bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="EduTalent" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-pink-600/90 text-white backdrop-blur-md">Web App & SaaS</span>
+            </div>
+            <div class="absolute bottom-4 right-4">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-900/90 text-slate-300 border border-slate-700 backdrop-blur-md">2024</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-xs text-pink-400 font-semibold mb-1">EduTalent Academy Indonesia</div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">
+                EduTalent - Gamified EdTech LMS Hub
+              </h3>
+              <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-2">
+                Platform pembelajaran interaktif dengan gamifikasi XP, code sandbox editor online langsung di browser, dan leaderboards.
+              </p>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 mb-6">
+                <div class="text-base font-extrabold text-pink-400">Completion Rate 68% • 45.000 Siswa</div>
+                <div class="text-[11px] text-slate-400">Engagement time meningkat +210%</div>
+              </div>
+            </div>
+            <button data-case-study-id="edutalent-lms" class="w-full py-2.5 rounded-xl bg-pink-600/20 hover:bg-pink-600 text-pink-300 hover:text-white font-semibold text-xs border border-pink-500/30 transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-eye text-xs"></i>
+              <span>Buka Rincian Studi Kasus</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 7. UrbanDrive EV -->
+        <div class="portfolio-card card-hover-effect rounded-2xl overflow-hidden flex flex-col group" data-category="fintech">
+          <div class="relative overflow-hidden h-60 bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1558441719-8b489c6f2d4b?auto=format&fit=crop&w=800&q=80" alt="UrbanDrive EV" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-violet-600/90 text-white backdrop-blur-md">Fintech & Smart UI</span>
+            </div>
+            <div class="absolute bottom-4 right-4">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-900/90 text-slate-300 border border-slate-700 backdrop-blur-md">2023</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-xs text-violet-400 font-semibold mb-1">UrbanDrive Mobility Indonesia</div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-violet-400 transition-colors">
+                UrbanDrive - EV Fleet & Charging Network
+              </h3>
+              <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-2">
+                Antarmuka pemantauan telemetri baterai armada mobil listrik nasional, reservasi slot SPKLU otomatis, dan e-wallet.
+              </p>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 mb-6">
+                <div class="text-base font-extrabold text-violet-400">99.4% Fleet Uptime • Antrean Turun 60%</div>
+                <div class="text-[11px] text-slate-400">350.000+ transaksi charging bulanan</div>
+              </div>
+            </div>
+            <button data-case-study-id="urbandrive-ev" class="w-full py-2.5 rounded-xl bg-violet-600/20 hover:bg-violet-600 text-violet-300 hover:text-white font-semibold text-xs border border-violet-500/30 transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-eye text-xs"></i>
+              <span>Buka Rincian Studi Kasus</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 8. NovaCloud -->
+        <div class="portfolio-card card-hover-effect rounded-2xl overflow-hidden flex flex-col group" data-category="fintech">
+          <div class="relative overflow-hidden h-60 bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="NovaCloud" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-600/90 text-white backdrop-blur-md">Fintech & Smart UI</span>
+            </div>
+            <div class="absolute bottom-4 right-4">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-900/90 text-slate-300 border border-slate-700 backdrop-blur-md">2024</span>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-xs text-blue-400 font-semibold mb-1">Nova Technologies Pte Ltd</div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                NovaCloud - Observability & Multi-Cloud
+              </h3>
+              <p class="text-slate-400 text-xs sm:text-sm mb-4 line-clamp-2">
+                Desain sistem UI/UX dark mode komprehensif untuk visualisasi log Kubernetes 60 FPS dan insiden otomatis bagi engineering team.
+              </p>
+              <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 mb-6">
+                <div class="text-base font-extrabold text-blue-400">MTTD Turun 45% • 100k Event/s Zero Lag</div>
+                <div class="text-[11px] text-slate-400">Kepuasan DevOps engineer mencapai 4.95/5.0</div>
+              </div>
+            </div>
+            <button data-case-study-id="novacloud-saas" class="w-full py-2.5 rounded-xl bg-blue-600/20 hover:bg-blue-600 text-blue-300 hover:text-white font-semibold text-xs border border-blue-500/30 transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-eye text-xs"></i>
+              <span>Buka Rincian Studi Kasus</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Shared Case Study Modal Component -->
+  <div id="case-study-modal" class="modal-backdrop fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4 overflow-y-auto">
+    <div class="modal-content-wrapper relative w-full max-w-4xl my-8 bg-slate-900 border border-slate-700 rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+      <div class="p-4 px-6 bg-slate-950 border-b border-slate-800 flex items-center justify-between sticky top-0 z-20">
+        <div class="flex items-center gap-3">
+          <span id="modal-case-category" class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-600/80 text-white">Kategori</span>
+          <span id="modal-case-client" class="text-xs text-slate-400 font-medium">Klien • Tahun</span>
+        </div>
+        <button id="close-case-modal-btn" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+          <i class="fas fa-times text-sm"></i>
+        </button>
+      </div>
+
+      <div class="p-6 sm:p-8 overflow-y-auto space-y-6">
+        <h2 id="modal-case-title" class="text-2xl sm:text-3xl font-extrabold text-white">Judul Proyek</h2>
+        <div class="rounded-2xl overflow-hidden h-64 sm:h-80 bg-slate-950">
+          <img id="modal-case-cover" src="" alt="Project Cover" class="w-full h-full object-cover">
+        </div>
+        <p id="modal-case-summary" class="text-slate-300 text-sm sm:text-base leading-relaxed font-normal"></p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+          <div class="p-5 rounded-2xl bg-rose-950/20 border border-rose-900/30">
+            <div class="text-rose-400 text-xs font-bold uppercase tracking-wider mb-2 flex items-center gap-2">
+              <i class="fas fa-triangle-exclamation"></i> Tantangan Awal
+            </div>
+            <p id="modal-case-challenge" class="text-slate-300 text-xs sm:text-sm leading-relaxed"></p>
+          </div>
+          <div class="p-5 rounded-2xl bg-indigo-950/20 border border-indigo-900/30">
+            <div class="text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2 flex items-center gap-2">
+              <i class="fas fa-lightbulb"></i> Solusi & Arsitektur Kreatika
+            </div>
+            <p id="modal-case-solution" class="text-slate-300 text-xs sm:text-sm leading-relaxed"></p>
+          </div>
+        </div>
+
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Hasil & Dampak Bisnis Terukur</div>
+          <div id="modal-case-results" class="grid grid-cols-2 sm:grid-cols-4 gap-4"></div>
+        </div>
+
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Teknologi & Tools</div>
+          <div id="modal-case-tech" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <div id="modal-case-testimonial"></div>
+
+        <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span class="text-xs text-slate-400">Ingin membangun sistem serupa untuk produk digital Anda?</span>
+          <a id="modal-case-cta" href="contact.html" class="btn-glow px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold text-xs flex items-center gap-2">
+            <span>Konsultasi Proyek Serupa</span>
+            <i class="fas fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#040609] border-t border-slate-900 py-12 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:flex sm:justify-between sm:items-center">
+      <div>&copy; 2024-2026 PT Kreatika Media Digital Indonesia. Seluruh hak cipta dilindungi.</div>
+      <div class="flex justify-center gap-6 mt-4 sm:mt-0">
+        <a href="index.html" class="hover:text-slate-400">Beranda</a>
+        <a href="services.html" class="hover:text-slate-400">Layanan</a>
+        <a href="pricing.html" class="hover:text-slate-400">Kalkulator Biaya</a>
+        <a href="contact.html" class="hover:text-slate-400">Kontak</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

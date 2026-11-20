@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang Kami - Kreatika Studio | Tim & Filosofi Agensi UI/UX</title>
+  <meta name="description" content="Kreatika Studio adalah agensi desain UI/UX dan web engineering independen di Jakarta & Bandung. Pelajari visi, misi, tim kepemimpinan, dan nilai keunggulan kami.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#EEF2FF', 500: '#6366F1', 600: '#4F46E5', dark: '#07090E', card: '#0D111C' }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Space Grotesk"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#07090E] text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-indigo-900 via-indigo-700 to-purple-800 text-xs py-2 px-4 text-center font-medium text-white flex items-center justify-center gap-2">
+    <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+    <span>Terbuka untuk Reservasi Proyek Q1 & Q2 • Dapatkan <strong>Free UX & Website Audit 30 Menit</strong></span>
+    <a href="contact.html" class="underline hover:text-indigo-200 ml-2 font-bold inline-flex items-center gap-1">Klaim Sekarang <i class="fas fa-arrow-right text-[10px]"></i></a>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform duration-300">
+            <i class="fas fa-cubes text-white text-xl"></i>
+          </div>
+          <div>
+            <div class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1">KREATIKA<span class="text-indigo-400">.</span></div>
+            <div class="text-[10px] tracking-wider text-slate-400 uppercase font-semibold">UI/UX & Web Engineering</div>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Beranda</a>
+          <a href="about.html" class="nav-link text-sm font-medium hover:text-indigo-400 transition-colors py-1 border-b-2 border-indigo-500">Tentang Kami</a>
+          <a href="services.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Layanan</a>
+          <a href="portfolio.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Portofolio</a>
+          <a href="pricing.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Paket & Kalkulator</a>
+          <a href="process.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Metodologi</a>
+          <a href="blog.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Blog</a>
+          <a href="contact.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Kontak</a>
+        </nav>
+
+        <div class="hidden md:flex items-center gap-4">
+          <button class="theme-toggle-btn w-10 h-10 rounded-xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center hover:bg-slate-700 transition-colors" title="Ganti Tema">
+            <i class="fas fa-sun text-amber-400 theme-toggle-icon"></i>
+          </button>
+          <a href="contact.html" class="btn-glow inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold text-sm shadow-lg shadow-indigo-600/30 hover:opacity-95 transition-all">
+            <span>Mulai Proyek</span>
+            <i class="fas fa-paper-plane text-xs"></i>
+          </a>
+        </div>
+
+        <div class="flex md:hidden items-center gap-3">
+          <button class="theme-toggle-btn w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300">
+            <i class="fas fa-sun text-amber-400 theme-toggle-icon"></i>
+          </button>
+          <button id="mobile-menu-btn" class="w-10 h-10 rounded-lg bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-white">
+            <i class="fas fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu-drawer" class="hidden md:hidden glass-panel border-b border-slate-800 px-6 py-6 transition-all duration-300">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+        <span class="text-sm font-bold uppercase tracking-wider text-indigo-400">Navigasi Utama</span>
+        <button id="close-mobile-menu-btn" class="text-slate-400 hover:text-white text-lg"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="flex flex-col gap-4 mt-4">
+        <a href="index.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Beranda</a>
+        <a href="about.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Tentang Kami</a>
+        <a href="services.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Layanan Desain & Web</a>
+        <a href="portfolio.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Portofolio & Studi Kasus</a>
+        <a href="pricing.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Paket Harga & Kalkulator</a>
+        <a href="process.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Alur Kerja & Metodologi</a>
+        <a href="blog.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Blog & Wawasan</a>
+        <a href="contact.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Kontak & Konsultasi</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero Header -->
+  <section class="py-20 md:py-28 relative bg-radial-glow overflow-hidden border-b border-slate-800/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 text-xs font-semibold mb-6">
+        <i class="fas fa-bullseye text-indigo-400"></i>
+        <span>Tentang Kreatika Studio</span>
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-6 tracking-tight">
+        Kami Memadukan <span class="text-gradient">Seni Visual & Rekayasa Kode</span> Presisi.
+      </h1>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Didirikan pada tahun 2019 di Jakarta & Bandung, kami hadir untuk membongkar stigma bahwa desain yang indah selalu lambat, dan website yang cepat selalu kaku. Kami menghadirkan keduanya sekaligus.
+      </p>
+    </div>
+  </section>
+
+  <!-- Story & Genesis Section -->
+  <section class="py-24 bg-[#07090E]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2">Kisah Perjalanan Kami</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-6">
+            Lahir dari Kegelisahan Akan Website Murahan Tanpa Strategi
+          </h2>
+          <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p>
+              Banyak bisnis menghabiskan puluhan hingga ratusan juta rupiah untuk membuat website, namun berakhir dengan template usang yang lambat, penuh celah keamanan, dan sama sekali tidak menghasilkan konversi penjualan.
+            </p>
+            <p>
+              Kreatika Studio lahir dengan sebuah prinsip sederhana namun fundamental: <strong>"Design with empathy, build with engineering excellence."</strong> Kami memperlakukan setiap proyek bukan sebagai pesanan teknis semata, melainkan sebagai aset investasi strategis yang harus menghasilkan laba nyata bagi pemilik bisnis.
+            </p>
+            <p>
+              Dalam 5 tahun terakhir, tim kami telah berkembang dari 3 orang idealis menjadi studio digital berkekuatan 20+ spesialis (UX Researchers, UI Designers, Frontend Wizards, Backend Architects, dan QA Testers) yang menangani klien dari Singapura, Australia, hingga korporasi ternama di Indonesia.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 mt-8 pt-8 border-t border-slate-800">
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="text-2xl font-bold text-indigo-400 mb-1">5+ Tahun</div>
+              <div class="text-xs text-slate-400">Pengalaman Industri Nyata</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="text-2xl font-bold text-violet-400 mb-1">100% Custom</div>
+              <div class="text-xs text-slate-400">Zero Template Pasaran</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Studio Atmosphere Image Gallery -->
+        <div class="relative">
+          <div class="rounded-3xl overflow-hidden border border-slate-700/80 shadow-2xl relative">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Kreatika Studio Team Working" class="w-full h-[450px] object-cover">
+          </div>
+          <!-- Floating badge -->
+          <div class="absolute -bottom-6 -left-6 p-5 rounded-2xl glass-panel border border-indigo-500/30 shadow-2xl hidden sm:flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-indigo-600/30 border border-indigo-400/40 flex items-center justify-center text-indigo-400 text-xl font-bold">
+              <i class="fas fa-shield-heart"></i>
+            </div>
+            <div>
+              <div class="text-xs text-slate-400">Standar Kualitas</div>
+              <div class="text-sm font-bold text-white">ISO 9001 & WCAG 2.1 Compliant</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision & Mission -->
+  <section class="py-20 bg-slate-950/60 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Visi -->
+        <div class="p-8 sm:p-10 rounded-3xl glass-panel border border-indigo-500/20 relative">
+          <div class="w-12 h-12 rounded-xl bg-indigo-900/60 border border-indigo-500/40 flex items-center justify-center text-indigo-400 text-xl mb-6">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">Visi Kami</h3>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Menjadi agensi rekayasa digital dan desain UI/UX paling terpercaya di Asia Tenggara yang menetapkan standar emas baru dalam perpaduan estetika visual, kecepatan performa, dan integritas kode.
+          </p>
+        </div>
+
+        <!-- Misi -->
+        <div class="p-8 sm:p-10 rounded-3xl glass-panel border border-violet-500/20 relative">
+          <div class="w-12 h-12 rounded-xl bg-violet-900/60 border border-violet-500/40 flex items-center justify-center text-violet-400 text-xl mb-6">
+            <i class="fas fa-compass"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-4">Misi Kami</h3>
+          <ul class="space-y-3 text-slate-300 text-sm leading-relaxed">
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+              <span>Memberdayakan bisnis lokal dan regional agar mampu bersaing di kancah global dengan aset digital berstandar internasional.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+              <span>Memprioritaskan kenyamanan pengguna akhir (human-centered UX) yang berujung pada pertumbuhan konversi bisnis nyata.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check-circle text-emerald-400 mt-1"></i>
+              <span>Menjaga transparansi penuh dalam metodologi pengerjaan, estimasi biaya, dan kepemilikan aset kode 100% oleh klien.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Core Values -->
+  <section class="py-24 bg-[#07090E]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2">Nilai Utama Kami</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Prinsip yang Menuntun Setiap Baris Kode</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 card-hover-effect">
+          <div class="text-2xl text-indigo-400 mb-4"><i class="fas fa-user-astronaut"></i></div>
+          <h3 class="text-lg font-bold text-white mb-2">User-Centric Empathy</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Kami tidak mendesain untuk ego kami, melainkan untuk pengguna Anda. Riset dan data memandu setiap keputusan antarmuka.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 card-hover-effect">
+          <div class="text-2xl text-violet-400 mb-4"><i class="fas fa-crosshairs"></i></div>
+          <h3 class="text-lg font-bold text-white mb-2">Pixel-Perfect Engineering</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Setiap jarak margin, ritme tipografi, dan kontras warna diperiksa cermat agar presisi dari file Figma hingga browser.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 card-hover-effect">
+          <div class="text-2xl text-cyan-400 mb-4"><i class="fas fa-bolt"></i></div>
+          <h3 class="text-lg font-bold text-white mb-2">Extreme Performance</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Skor Google PageSpeed 90+ bukan opsi, melainkan standar minimum kami untuk memastikan nol latency bagi pengguna.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 card-hover-effect">
+          <div class="text-2xl text-emerald-400 mb-4"><i class="fas fa-hand-holding-heart"></i></div>
+          <h3 class="text-lg font-bold text-white mb-2">Radical Transparency</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Tanpa biaya siluman. Anda mendapatkan akses repositori kode real-time, laporan sprint mingguan, dan komunikasi proaktif.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Team Showcase -->
+  <section class="py-24 bg-slate-950/70 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2">Orang-Orang di Balik Layar</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Tim Ahli & Arsitek Digital Kami</h2>
+        <p class="text-slate-400 text-sm">Praktisi berpengalaman dengan latar belakang desain interaksi, sistem terdistribusi, dan riset UX kognitif.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Team 1 -->
+        <div class="card-hover-effect rounded-2xl overflow-hidden group">
+          <div class="h-72 overflow-hidden bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Rizky Ramadhan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-white">Rizky Ramadhan, S.Sn.</h3>
+            <div class="text-xs font-semibold text-indigo-400 mb-3">Founder & Creative Director</div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">10+ tahun pengalaman memimpin proyek desain brand ternama dan juri aktif di komunitas Awwwards.</p>
+            <div class="flex items-center gap-3 text-slate-400 text-xs">
+              <a href="#" class="hover:text-indigo-400"><i class="fab fa-linkedin"></i> LinkedIn</a>
+              <a href="#" class="hover:text-indigo-400"><i class="fab fa-dribbble"></i> Dribbble</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team 2 -->
+        <div class="card-hover-effect rounded-2xl overflow-hidden group">
+          <div class="h-72 overflow-hidden bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="Kevin Jonathan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-white">Kevin Jonathan, S.Kom.</h3>
+            <div class="text-xs font-semibold text-violet-400 mb-3">Co-Founder & Principal Architect</div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">Spesialis arsitektur serverless, performa React/Next.js, dan keamanan sistem enterprise fintech.</p>
+            <div class="flex items-center gap-3 text-slate-400 text-xs">
+              <a href="#" class="hover:text-violet-400"><i class="fab fa-linkedin"></i> LinkedIn</a>
+              <a href="#" class="hover:text-violet-400"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team 3 -->
+        <div class="card-hover-effect rounded-2xl overflow-hidden group">
+          <div class="h-72 overflow-hidden bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Clara Salsabila" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-white">Clara Salsabila, M.Sc.</h3>
+            <div class="text-xs font-semibold text-pink-400 mb-3">Head of UX Research</div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">Magister Human-Computer Interaction dengan spesialisasi behavioral economics dan usability testing lab.</p>
+            <div class="flex items-center gap-3 text-slate-400 text-xs">
+              <a href="#" class="hover:text-pink-400"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Milestones & Recognition -->
+  <section class="py-24 bg-[#07090E] border-t border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2">Jejak Langkah</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Milestone & Penghargaan Industri</h2>
+      </div>
+
+      <div class="space-y-8 relative before:absolute before:inset-0 before:left-8 md:before:left-1/2 before:w-0.5 before:bg-slate-800">
+        
+        <!-- Milestone 1 -->
+        <div class="relative flex flex-col md:flex-row items-center gap-8 group">
+          <div class="md:w-1/2 md:text-right order-2 md:order-1 pl-16 md:pl-0">
+            <span class="text-xs font-bold text-indigo-400 uppercase">2019</span>
+            <h3 class="text-lg font-bold text-white">Pendirian Kreatika Studio</h3>
+            <p class="text-xs text-slate-400 mt-1">Dimulai dari studio kecil di Dago Bandung dengan fokus pada desain UI/UX mobile apps untuk startup tahap awal.</p>
+          </div>
+          <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-indigo-600 border-4 border-slate-950 flex items-center justify-center text-white text-xs z-10">
+            <i class="fas fa-flag"></i>
+          </div>
+          <div class="md:w-1/2 order-3 pl-16 md:pl-0"></div>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="relative flex flex-col md:flex-row items-center gap-8 group">
+          <div class="md:w-1/2 md:text-right order-2 md:order-1 pl-16 md:pl-0"></div>
+          <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-violet-600 border-4 border-slate-950 flex items-center justify-center text-white text-xs z-10">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="md:w-1/2 order-3 pl-16 md:pl-0">
+            <span class="text-xs font-bold text-violet-400 uppercase">2021</span>
+            <h3 class="text-lg font-bold text-white">Ekspansi Kantor Jakarta & Divisi Web Engineering</h3>
+            <p class="text-xs text-slate-400 mt-1">Membuka kantor di TB Simatupang Jakarta Selatan dan memenangkan penghargaan Site of the Day CSS Design Awards.</p>
+          </div>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="relative flex flex-col md:flex-row items-center gap-8 group">
+          <div class="md:w-1/2 md:text-right order-2 md:order-1 pl-16 md:pl-0">
+            <span class="text-xs font-bold text-emerald-400 uppercase">2024</span>
+            <h3 class="text-lg font-bold text-white">150+ Proyek Terselesaikan & Akreditasi Enterprise</h3>
+            <p class="text-xs text-slate-400 mt-1">Mencapai tonggak sejarah 150+ proyek sukses dengan tingkat kepuasan klien 99.2% dan melayani klien di 4 negara.</p>
+          </div>
+          <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-emerald-600 border-4 border-slate-950 flex items-center justify-center text-white text-xs z-10">
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="md:w-1/2 order-3 pl-16 md:pl-0"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-20 bg-gradient-to-r from-indigo-950 to-slate-900 border-t border-slate-800 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Mari Berkolaborasi dengan Tim Kami</h2>
+      <p class="text-slate-300 text-sm max-w-xl mx-auto mb-8">Diskusikan kebutuhan proyek Anda langsung dengan Principal Designer dan Lead Engineer kami.</p>
+      <a href="contact.html" class="btn-glow inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold text-sm shadow-xl shadow-indigo-600/30">
+        <span>Hubungi Tim Kreatika</span>
+        <i class="fas fa-arrow-right text-xs"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#040609] border-t border-slate-900 py-12 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:flex sm:justify-between sm:items-center">
+      <div>&copy; 2024-2026 PT Kreatika Media Digital Indonesia. Seluruh hak cipta dilindungi.</div>
+      <div class="flex justify-center gap-6 mt-4 sm:mt-0">
+        <a href="index.html" class="hover:text-slate-400">Beranda</a>
+        <a href="services.html" class="hover:text-slate-400">Layanan</a>
+        <a href="portfolio.html" class="hover:text-slate-400">Portofolio</a>
+        <a href="contact.html" class="hover:text-slate-400">Kontak</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

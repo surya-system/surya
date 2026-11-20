@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paket & Kalkulator Biaya - Kreatika Studio | Harga Jasa UI/UX Web</title>
+  <meta name="description" content="Kalkulator estimasi biaya pembuatan website dan UI/UX interaktif secara real-time. Paket harga transparan tanpa biaya tersembunyi dengan garansi bebas bug resmi.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#EEF2FF', 500: '#6366F1', 600: '#4F46E5', dark: '#07090E', card: '#0D111C' }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Space Grotesk"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#07090E] text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-indigo-900 via-indigo-700 to-purple-800 text-xs py-2 px-4 text-center font-medium text-white flex items-center justify-center gap-2">
+    <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+    <span>Semua Paket Dilengkapi <strong>Garansi Bebas Bug Resmi & 100% Hak Milik Source Code</strong></span>
+    <a href="contact.html" class="underline hover:text-indigo-200 ml-2 font-bold inline-flex items-center gap-1">Konsultasi <i class="fas fa-arrow-right text-[10px]"></i></a>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform duration-300">
+            <i class="fas fa-cubes text-white text-xl"></i>
+          </div>
+          <div>
+            <div class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1">KREATIKA<span class="text-indigo-400">.</span></div>
+            <div class="text-[10px] tracking-wider text-slate-400 uppercase font-semibold">UI/UX & Web Engineering</div>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Beranda</a>
+          <a href="about.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Tentang Kami</a>
+          <a href="services.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Layanan</a>
+          <a href="portfolio.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Portofolio</a>
+          <a href="pricing.html" class="nav-link text-sm font-medium hover:text-indigo-400 transition-colors py-1 border-b-2 border-indigo-500">Paket & Kalkulator</a>
+          <a href="process.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Metodologi</a>
+          <a href="blog.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Blog</a>
+          <a href="contact.html" class="nav-link text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors py-1">Kontak</a>
+        </nav>
+
+        <div class="hidden md:flex items-center gap-4">
+          <button class="theme-toggle-btn w-10 h-10 rounded-xl bg-slate-800/80 border border-slate-700/80 flex items-center justify-center hover:bg-slate-700 transition-colors" title="Ganti Tema">
+            <i class="fas fa-sun text-amber-400 theme-toggle-icon"></i>
+          </button>
+          <a href="contact.html" class="btn-glow inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold text-sm shadow-lg shadow-indigo-600/30 hover:opacity-95 transition-all">
+            <span>Mulai Proyek</span>
+            <i class="fas fa-paper-plane text-xs"></i>
+          </a>
+        </div>
+
+        <div class="flex md:hidden items-center gap-3">
+          <button class="theme-toggle-btn w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300">
+            <i class="fas fa-sun text-amber-400 theme-toggle-icon"></i>
+          </button>
+          <button id="mobile-menu-btn" class="w-10 h-10 rounded-lg bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-white">
+            <i class="fas fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu-drawer" class="hidden md:hidden glass-panel border-b border-slate-800 px-6 py-6 transition-all duration-300">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+        <span class="text-sm font-bold uppercase tracking-wider text-indigo-400">Navigasi Utama</span>
+        <button id="close-mobile-menu-btn" class="text-slate-400 hover:text-white text-lg"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="flex flex-col gap-4 mt-4">
+        <a href="index.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Beranda</a>
+        <a href="about.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Tentang Kami</a>
+        <a href="services.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Layanan Desain & Web</a>
+        <a href="portfolio.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Portofolio & Studi Kasus</a>
+        <a href="pricing.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Paket Harga & Kalkulator</a>
+        <a href="process.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Alur Kerja & Metodologi</a>
+        <a href="blog.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Blog & Wawasan</a>
+        <a href="contact.html" class="text-slate-200 hover:text-indigo-400 font-medium py-1">Kontak & Konsultasi</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-20 md:py-28 relative bg-radial-glow border-b border-slate-800/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 text-xs font-semibold mb-6">
+        <i class="fas fa-tag text-indigo-400"></i>
+        <span>Struktur Biaya Transparan & Fair</span>
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-extrabold text-white mb-6 tracking-tight">
+        Investasi Transparan untuk <span class="text-gradient">Aset Digital Bernilai Tinggi</span>
+      </h1>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Pilih paket terstruktur kami atau gunakan kalkulator interaktif di bawah untuk memperkirakan biaya dan durasi pengerjaan secara mandiri.
+      </p>
+    </div>
+  </section>
+
+  <!-- Realtime Cost Estimator Section -->
+  <section class="py-20 bg-[#07090E]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="rounded-3xl p-8 sm:p-12 glass-panel border border-indigo-500/30 shadow-2xl relative">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-xs font-bold uppercase tracking-widest text-indigo-400">Tool Interaktif</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Kalkulator Estimasi Biaya & Waktu</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2">Sesuaikan jenis produk, jumlah halaman, dan opsi fitur untuk melihat perkiraan biaya instan.</p>
+        </div>
+
+        <form id="cost-calculator-form" class="space-y-8">
+          
+          <!-- 1. Service Platform -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">1. Pilih Kategori Produk Digital</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+              
+              <label class="p-4 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer hover:border-indigo-500/50 transition-colors flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-white text-sm">Company Profile</span>
+                    <input type="radio" name="calc-service" value="8500000" data-name="Company Profile Express" data-days="12" checked class="text-indigo-600">
+                  </div>
+                  <p class="text-slate-400 text-[11px]">Website profil bisnis elegan, fast loading & siap konversi lead.</p>
+                </div>
+                <div class="text-indigo-400 font-extrabold text-xs mt-3">Mulai Rp 8.5 Juta</div>
+              </label>
+
+              <label class="p-4 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer hover:border-indigo-500/50 transition-colors flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-white text-sm">Custom UI/UX Web</span>
+                    <input type="radio" name="calc-service" value="19500000" data-name="Custom UI/UX & Dynamic Web" data-days="25" class="text-indigo-600">
+                  </div>
+                  <p class="text-slate-400 text-[11px]">Riset pengguna, prototipe Figma kustom, & CMS dinamis.</p>
+                </div>
+                <div class="text-indigo-400 font-extrabold text-xs mt-3">Mulai Rp 19.5 Juta</div>
+              </label>
+
+              <label class="p-4 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer hover:border-indigo-500/50 transition-colors flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-white text-sm">Headless E-Commerce</span>
+                    <input type="radio" name="calc-service" value="28000000" data-name="E-Commerce Headless Store" data-days="35" class="text-indigo-600">
+                  </div>
+                  <p class="text-slate-400 text-[11px]">Toko online terintegrasi payment gateway lokal & multi-kurir.</p>
+                </div>
+                <div class="text-indigo-400 font-extrabold text-xs mt-3">Mulai Rp 28 Juta</div>
+              </label>
+
+              <label class="p-4 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer hover:border-indigo-500/50 transition-colors flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-white text-sm">Enterprise SaaS</span>
+                    <input type="radio" name="calc-service" value="39000000" data-name="Enterprise SaaS / Web App" data-days="50" class="text-indigo-600">
+                  </div>
+                  <p class="text-slate-400 text-[11px]">Aplikasi web kompleks, multi-role auth, cloud scalable.</p>
+                </div>
+                <div class="text-indigo-400 font-extrabold text-xs mt-3">Mulai Rp 39 Juta</div>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- 2. Page Count Slider -->
+          <div>
+            <div class="flex items-center justify-between text-xs font-bold mb-2">
+              <span class="text-slate-300 uppercase tracking-wider">2. Estimasi Jumlah Halaman / Views</span>
+              <span id="calc-pages-val" class="text-indigo-400 font-extrabold text-base">5 Halaman</span>
+            </div>
+            <input id="calc-pages" type="range" min="1" max="25" value="5" step="1">
+            <div class="flex justify-between text-[11px] text-slate-500 mt-2 font-mono">
+              <span>1 Halaman (Landing Page)</span>
+              <span>5 Halaman (Standar)</span>
+              <span>12 Halaman (Lengkap)</span>
+              <span>25+ Halaman (Korporasi)</span>
+            </div>
+          </div>
+
+          <!-- 3. Feature Add-ons -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">3. Modul & Fitur Tambahan (Opsional)</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+              <label class="flex items-center gap-3 p-3.5 rounded-xl bg-slate-900 border border-slate-800 cursor-pointer text-slate-300 hover:border-slate-700">
+                <input type="checkbox" name="calc-features" value="3500000" data-name="CMS Panel Admin" data-extra-days="4" class="text-indigo-600 rounded">
+                <div>
+                  <div class="font-bold text-white">Panel CMS Mandiri</div>
+                  <div class="text-[10px] text-slate-400">+Rp 3.500.000 (Edit konten tanpa koding)</div>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3.5 rounded-xl bg-slate-900 border border-slate-800 cursor-pointer text-slate-300 hover:border-slate-700">
+                <input type="checkbox" name="calc-features" value="4500000" data-name="Payment Gateway" data-extra-days="5" class="text-indigo-600 rounded">
+                <div>
+                  <div class="font-bold text-white">Payment Gateway Resmi</div>
+                  <div class="text-[10px] text-slate-400">+Rp 4.500.000 (QRIS, VA, Kartu Kredit)</div>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3.5 rounded-xl bg-slate-900 border border-slate-800 cursor-pointer text-slate-300 hover:border-slate-700">
+                <input type="checkbox" name="calc-features" value="2500000" data-name="SEO Pro & Speed 90+" data-extra-days="3" class="text-indigo-600 rounded">
+                <div>
+                  <div class="font-bold text-white">SEO Pro & PageSpeed 90+</div>
+                  <div class="text-[10px] text-slate-400">+Rp 2.500.000 (Skor A+ & Schema)</div>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3.5 rounded-xl bg-slate-900 border border-slate-800 cursor-pointer text-slate-300 hover:border-slate-700">
+                <input type="checkbox" name="calc-features" value="2000000" data-name="Multi-language ID/EN" data-extra-days="2" class="text-indigo-600 rounded">
+                <div>
+                  <div class="font-bold text-white">Multi-Bahasa (ID & EN)</div>
+                  <div class="text-[10px] text-slate-400">+Rp 2.000.000 (Pindah bahasa instan)</div>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3.5 rounded-xl bg-slate-900 border border-slate-800 cursor-pointer text-slate-300 hover:border-slate-700">
+                <input type="checkbox" name="calc-features" value="5000000" data-name="Role-Based Dashboard" data-extra-days="7" class="text-indigo-600 rounded">
+                <div>
+                  <div class="font-bold text-white">Role-Based Dashboard</div>
+                  <div class="text-[10px] text-slate-400">+Rp 5.000.000 (Superadmin & Staff)</div>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3.5 rounded-xl bg-slate-900 border border-slate-800 cursor-pointer text-slate-300 hover:border-slate-700">
+                <input type="checkbox" id="calc-express" class="text-indigo-600 rounded">
+                <div>
+                  <div class="font-bold text-amber-400">⚡ Opsi Prioritas Kilat</div>
+                  <div class="text-[10px] text-slate-400">+25% Biaya (Waktu 40% lebih cepat)</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Total Result Container -->
+          <div class="p-6 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+            <div>
+              <div class="text-xs uppercase font-bold tracking-wider text-slate-400">Perkiraan Nilai Investasi:</div>
+              <div id="calc-total-result" class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-400 my-1">
+                Rp 8.500.000
+              </div>
+              <div id="calc-timeline-result" class="text-xs text-slate-400 flex items-center gap-2">
+                <i class="fas fa-clock text-indigo-400"></i>
+                <span>± 12 Hari Kerja (~2 Minggu)</span>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center gap-3">
+              <a id="calc-whatsapp-quote-btn" target="_blank" href="#" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/25 transition-all">
+                <i class="fab fa-whatsapp text-base"></i>
+                <span>Kirim Estimasi ke WhatsApp</span>
+              </a>
+              <a href="contact.html" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all">
+                <span>Jadwalkan Discovery Call</span>
+                <i class="fas fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3 Package Cards -->
+  <section class="py-24 bg-slate-950/70 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2">Paket All-Inclusive</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Pilihan Paket Proyek Unggulan</h2>
+        <p class="text-slate-400 text-sm">Semua paket dilengkapi dokumentasi lengkap, pengawalan go-live, dan garansi resmi.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Starter Package -->
+        <div class="card-hover-effect rounded-3xl p-8 flex flex-col justify-between">
+          <div>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-800 text-slate-300">Starter Growth</span>
+            <h3 class="text-2xl font-bold text-white mt-4">Rp 8.500.000</h3>
+            <p class="text-xs text-slate-400 mt-2 mb-6">Cocok untuk UMKM, firma profesional, dan bisnis baru yang butuh identitas online kredibel.</p>
+            <div class="text-xs font-bold text-indigo-400 mb-4 flex items-center gap-2">
+              <i class="fas fa-clock"></i> Estimasi: 10 - 14 Hari Kerja
+            </div>
+            
+            <ul class="space-y-3 text-xs text-slate-300 pt-4 border-t border-slate-800 mb-8">
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Hingga 5 Halaman Kustom</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Desain UI/UX Figma Mobile-First</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Fast Loading Code (React/Tailwind)</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Direct WhatsApp & Email Form</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Setup Google Analytics & Basic SEO</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Garansi Bebas Bug 30 Hari</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> 100% Hak Milik Source Code</li>
+            </ul>
+          </div>
+          <a href="contact.html?project=Paket%20Starter%20Growth" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs text-center transition-colors">
+            Pilih Paket Starter
+          </a>
+        </div>
+
+        <!-- Pro Package (Highlighted) -->
+        <div class="rounded-3xl p-8 flex flex-col justify-between bg-gradient-to-b from-indigo-950/80 via-slate-900 to-indigo-950/60 border-2 border-indigo-500 shadow-2xl shadow-indigo-600/20 relative">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 text-white text-[11px] font-extrabold uppercase tracking-wider shadow-md">
+            Paling Banyak Dipilih
+          </div>
+          <div>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-900/60 text-indigo-300">Professional Scale</span>
+            <h3 class="text-3xl font-extrabold text-white mt-4">Rp 19.500.000</h3>
+            <p class="text-xs text-slate-300 mt-2 mb-6">Solusi komprehensif dari riset UX, desain antarmuka eksklusif, hingga panel CMS mandiri.</p>
+            <div class="text-xs font-bold text-indigo-300 mb-4 flex items-center gap-2">
+              <i class="fas fa-clock"></i> Estimasi: 3 - 5 Minggu
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-200 pt-4 border-t border-indigo-500/30 mb-8">
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Hingga 12 Halaman Desain Kustom</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Riset Kompetitor & User Journey</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Animasi Mikro & Interaksi Mewah (GSAP)</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Panel CMS Mandiri (Edit Tanpa Coding)</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Google PageSpeed Target Skor 90+</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Optimasi SEO Lanjutan (Schema Markup)</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Garansi Bebas Bug 90 Hari</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Training Tim Klien 1-on-1</li>
+            </ul>
+          </div>
+          <a href="contact.html?project=Paket%20Professional%20Scale" class="btn-glow w-full py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold text-xs text-center shadow-lg shadow-indigo-600/30">
+            Pilih Paket Professional
+          </a>
+        </div>
+
+        <!-- Enterprise Package -->
+        <div class="card-hover-effect rounded-3xl p-8 flex flex-col justify-between">
+          <div>
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-800 text-slate-300">Enterprise Architecture</span>
+            <h3 class="text-2xl font-bold text-white mt-4">Mulai Rp 39.000.000</h3>
+            <p class="text-xs text-slate-400 mt-2 mb-6">Aplikasi web kustom, SaaS platform, atau portal multi-user dengan integrasi API enterprise.</p>
+            <div class="text-xs font-bold text-emerald-400 mb-4 flex items-center gap-2">
+              <i class="fas fa-clock"></i> Estimasi: 6 - 12 Minggu
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-300 pt-4 border-t border-slate-800 mb-8">
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Unlimited Pages & Modular Views</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Usability Testing Lab & Full Persona</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Full Master Figma Design System</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Next.js 14 / Node.js / PostgreSQL / Redis</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Multi-Role RBAC & Audit Logs</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Integrasi Payment Gateway & Multi-API</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> Garansi Bebas Bug 180 Hari Prioritas</li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-0.5"></i> SLA Support 24/7 Dedicated Channel</li>
+            </ul>
+          </div>
+          <a href="contact.html?project=Paket%20Enterprise%20Architecture" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs text-center transition-colors">
+            Konsultasi Scope Enterprise
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ Section with Accordion -->
+  <section class="py-24 bg-[#07090E] border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-16">
+        <div class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2">Pertanyaan Umum</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Hal-Hal yang Sering Ditanyakan</h2>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="accordion-item rounded-2xl bg-slate-900/60 border border-slate-800 overflow-hidden">
+          <button class="accordion-header w-full p-6 text-left flex items-center justify-between text-white font-bold text-sm sm:text-base">
+            <span>Bagaimana tahapan pembayaran proyek di Kreatika Studio?</span>
+            <i class="fas fa-chevron-down accordion-icon text-indigo-400 transition-transform duration-300"></i>
+          </button>
+          <div class="accordion-content px-6 pb-6 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/50 pt-4">
+            Kami menerapkan sistem pembayaran bertahap (termin) yang aman: <strong>Termin 1 (DP 40%)</strong> saat kickoff riset & kontrak; <strong>Termin 2 (30%)</strong> setelah tahap Desain UI/UX Figma disetujui (Approved Prototype); dan <strong>Termin 3 (30%)</strong> pelunasan setelah development selesai, testing menyeluruh (UAT), dan web siap go-live.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="accordion-item rounded-2xl bg-slate-900/60 border border-slate-800 overflow-hidden">
+          <button class="accordion-header w-full p-6 text-left flex items-center justify-between text-white font-bold text-sm sm:text-base">
+            <span>Berapa kali revisi yang diizinkan selama proyek berjalan?</span>
+            <i class="fas fa-chevron-down accordion-icon text-indigo-400 transition-transform duration-300"></i>
+          </button>
+          <div class="accordion-content px-6 pb-6 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/50 pt-4">
+            Pada tahap desain visual di Figma, kami memberikan revisi iteratif tanpa batasan kaku hingga disepakati desain final yang memuaskan kedua belah pihak. Setelah desain disetujui dan masuk pengkodean, revisi berfokus pada kesesuaian fungsional dan perbaikan bug sesuai scope yang disepakati.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="accordion-item rounded-2xl bg-slate-900/60 border border-slate-800 overflow-hidden">
+          <button class="accordion-header w-full p-6 text-left flex items-center justify-between text-white font-bold text-sm sm:text-base">
+            <span>Apakah source code dan master design menjadi hak milik klien?</span>
+            <i class="fas fa-chevron-down accordion-icon text-indigo-400 transition-transform duration-300"></i>
+          </button>
+          <div class="accordion-content px-6 pb-6 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/50 pt-4">
+            Ya, 100%! Setelah pelunasan proyek, seluruh hak cipta, file master Figma, repositori kode GitHub/GitLab, dan kredensial hosting diserahkan sepenuhnya kepada perusahaan Anda tanpa royalti atau keterikatan tersembunyi.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="accordion-item rounded-2xl bg-slate-900/60 border border-slate-800 overflow-hidden">
+          <button class="accordion-header w-full p-6 text-left flex items-center justify-between text-white font-bold text-sm sm:text-base">
+            <span>Apakah Kreatika Studio dapat menerbitkan Faktur Pajak resmi?</span>
+            <i class="fas fa-chevron-down accordion-icon text-indigo-400 transition-transform duration-300"></i>
+          </button>
+          <div class="accordion-content px-6 pb-6 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/50 pt-4">
+            Tentu saja. Perusahaan kami (PT Kreatika Media Digital Indonesia) adalah entitas berbadan hukum resmi (PKP) dan dapat menerbitkan Invoice resmi, Surat Perjanjian Kerjasama (SPK), NDA, dan Faktur Pajak PPN sesuai kebutuhan pembukuan perusahaan Anda.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#040609] border-t border-slate-900 py-12 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:flex sm:justify-between sm:items-center">
+      <div>&copy; 2024-2026 PT Kreatika Media Digital Indonesia. Seluruh hak cipta dilindungi.</div>
+      <div class="flex justify-center gap-6 mt-4 sm:mt-0">
+        <a href="index.html" class="hover:text-slate-400">Beranda</a>
+        <a href="services.html" class="hover:text-slate-400">Layanan</a>
+        <a href="portfolio.html" class="hover:text-slate-400">Portofolio</a>
+        <a href="contact.html" class="hover:text-slate-400">Kontak</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
